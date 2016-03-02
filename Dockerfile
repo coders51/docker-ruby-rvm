@@ -3,6 +3,8 @@ MAINTAINER coders51 <dev@coders51.com>
 
 LABEL Description="ruby 2.0.0-p247 with debugger 1.6.6 and rails 4.0.1 from RVM"
 
+CMD ["bin/bash", "-l"]
+
 RUN apt-get update && apt-get install -y \
 	curl \
 	libxml2-dev \
