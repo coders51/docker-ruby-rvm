@@ -3,9 +3,6 @@ MAINTAINER coders51 <dev@coders51.com>
 
 LABEL Description="ruby 2.0.0-p247 with debugger 1.6.6 and rails 4.0.1 from RVM"
 
-#CMD ["bash", "-l"]
-
-#RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 RUN apt-get update && apt-get install -y \
 	curl \
 	libxml2-dev \
@@ -36,9 +33,10 @@ RUN apt-get update && apt-get install -y \
 
 RUN gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
 RUN \curl -sSL https://get.rvm.io | bash -s stable
-UN /usr/local/rvm/bin/rvm install 2.0.0-p247
+RUN /usr/local/rvm/bin/rvm install 2.0.0-p247
 RUN /usr/local/rvm/bin/rvm alias create default 2.0.0-p247
 RUN /usr/local/rvm/bin/rvm system 2.0.0-p247
+
 ENV PATH=${PATH}:/usr/local/rvm/wrappers/ruby-2.0.0-p247
 
 RUN gem install bundler sass
